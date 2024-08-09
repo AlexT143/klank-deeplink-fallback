@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klank - User Profile</title>
+    <meta name="description" content="Check out this user's profile on Klank!">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1 {
+            color: #007AFF;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #007AFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Klank User Profile</h1>
+    <p>This user's profile is best viewed in the Klank app.</p>
+    <a href="https://example.com" class="cta-button">Learn More About Klank</a>
+
+    <script>
+        // Parse USER_ID from URL
+        var urlParams = new URLSearchParams(window.window.location.search);
+        var userId = urlParams.get('id');
+        
+        if (userId) {
+            // Update deep link URL
+            var deepLink = 'klank://u/' + userId + '/profile/';
+            
+            // Attempt to open the app with the correct USER_ID
+            window.location.href = deepLink;
+            
+            // Fallback to placeholder link after a short delay
+            setTimeout(function() {
+                window.location.href = 'https://example.com';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
